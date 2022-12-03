@@ -8,31 +8,46 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-    <button type="button" class="newBookBtn">NEW BOOK</button>
-    <div class="newBookContainer hidden">
-        <form action="">
-            <legend>Book</legend>
-            <label for="bookName">Name:</label>
-            <input type="text" id="bookName" class="bookName" required>
-            <label for="author">Author:</label>
-            <input type="text" id="author" class="author" required>
-            <button type="button" class="submitBookBtn">Submit Book</button>
-        </form>
-    </div>
-    <div class="bookContainer">
-        <table class="booksTable">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Author</th>
-                    <th>Pages</th>
-                    <th>Read</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
-            <tbody class="tableBody">
-            </tbody>
-        </table>
+    <div class="big-container">
+        <button type="button" class="newBookBtn">NEW BOOK</button>
+        <div class="newBookContainer hidden">
+            <form action="" class="bookForm">
+                <label for="bookName">Name:</label>
+                <input type="text" id="bookName" name="name" class="bookName" value="Kay" required>
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" class="author" value="Zed"  required>
+                <label for="pages">Pages:</label>
+                <input type="number" id="pages" name="pages" class="pages" value="100" min="1" required>
+                <fieldset class="readBook">
+                    <legend>Have you read it?</legend>
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="yes" name="read" class="read" value="Yes" required>
+                    <label for="no">No</label>
+                    <input type="radio" id="no" name="read" class="read" value="No" required>
+                    <label for="not">Unfinished</label>
+                    <input type="radio" id="not" name="read" class="read" value="Unfinished" required>
+                </fieldset>
+                <label for="rating">Rating:</label>
+                <input type="number" id="rating" name="rating" class="rating" value="--" min="0" max="10">
+                <input type="submit" value="Submit" class="submitBtn">
+            </form>
+        </div>
+        <div class="bookContainer">
+            <table class="booksTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Author</th>
+                        <th>Pages</th>
+                        <th class="columnRead">Read</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody class="tableBody">
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
     <script src="script.js"></script>

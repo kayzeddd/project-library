@@ -5,6 +5,21 @@
     font-size: 1.2rem;
 }
 
+body {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(187, 238, 212, 0.686);
+}
+
+.big-container {
+    margin-top: 50px;
+    margin-left:100px;
+    margin-right: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
 .hidden {
     display: none;
 }
@@ -15,12 +30,11 @@
 
 .booksTable *{
     text-align: left;
-    border: 2px solid black;
     padding: 5px 10px;
 }
 
 .booksTable {
-    margin:25px 20px;
+    margin-top: 50px;
     min-width: 800px;
 }
 
@@ -29,8 +43,38 @@ thead th{
     background-color: black;
     color: white;
     font-weight: 700;
+    border: 2px solid black;
 }
 
 tbody tr:nth-child(2n){
-    background-color: rgba(207, 207, 207, 0.548);
+    background-color: rgba(141, 213, 194, 0.424);
+}
+
+td, th{
+    border: 2px solid black;
+}
+
+.columnRead {
+    width: 160px;   
+}
+
+.xCell {
+    border: 2px solid red;
+}
+
+.xBtn {
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    margin-left: 5px;
+    border: none;
+    background-color: transparent;
+    background-image: url("../images/deleteBtn.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.xBtn:hover {
+    background-color:white;
 }
