@@ -46,25 +46,37 @@ thead th{
     border: 2px solid black;
 }
 
-tbody tr:nth-child(2n){
-    background-color: rgba(141, 213, 194, 0.424);
-}
 
 td, th{
     border: 2px solid black;
 }
 
+
 .columnRead {
-    width: 160px;   
+    width: 55px;   
 }
 
-.xCell {
-    border: 2px solid red;
+.columnRating{
+    width: 80px;
 }
 
-.xBtn {
-    height: 20px;
+
+
+.bg-color{
+    background-color: rgba(135, 239, 211, 0.518);
+}
+
+
+.x-Cell {
     width: 20px;
+    border: transparent;
+    padding: 0;
+    background-color: transparent;
+}
+
+.x-Btn {
+    width: 20px;
+    height: 20px;
     text-align: center;
     margin-left: 5px;
     border: none;
@@ -77,4 +89,18 @@ td, th{
 
 .xBtn:hover {
     background-color:white;
+}
+
+.readCells {
+    padding: 0;
+    text-align: center;
+}
+
+.readBtns {
+    height: 25px;
+    width: 25px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0px;
 }

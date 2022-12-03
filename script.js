@@ -8,7 +8,8 @@ const tableBody = document.querySelector(".tableBody")
 const submitBtn = document.querySelector(".submitBtn")
 const bookForm = document.querySelector(".bookForm")
 
-newBookBtn.addEventListener("click", (e) => {newBookContainer.classList.add("showForm")})
+newBookBtn.addEventListener("click", (e) => {bookForm.reset();
+    newBookContainer.classList.add("showForm")})
 submitBtn.addEventListener("click", submit)
 
 let library = [];
@@ -16,7 +17,8 @@ let ratingValue;
 
 function submit(e){
     e.preventDefault();
-    let read = document.querySelector('input[name="read"]:checked').value
+    let read = document.querySelector('input[name="read"]:checked').value;
+    if ((+rating.value) > 10){return alert("Rating greater than 10!")}
     rate();
     makeObj(bookName.value, author.value, pages.value, read, ratingValue);
     bookForm.reset();
@@ -27,14 +29,19 @@ function rate(){
         ratingValue = "--";
         return
     }
-    ratingValue = rating.value;
+    let num = +rating.value;
+    if ((num % 1) == 0){
+        ratingValue = `${num}/10`
+        return
+    }
+    ratingValue = `${num.toFixed(1)}/10`;
 }
 
 
 function makeObj(name,author,pages,read,rating){
     let bookObj = new Book(name,author,pages,read,rating);
     library.push(bookObj)
-    displayBooks(library);
+    displayBooks();
 }
 
 function Book(name,author,pages,read,rating){
@@ -52,7 +59,7 @@ function clearBooks(){
     })
 }
 
-function displayBooks(library){
+function displayBooks(){
     clearBooks();
     let frag = document.createDocumentFragment();
     let array = ["#", "name", "author", "pages", "read", "rating"]
@@ -64,15 +71,24 @@ function displayBooks(library){
             if (x == 0){
                 cell.textContent = i + 1;
             }
+            else if (array[x] == "read"){
+                let readBtn = document.createElement("button");
+                setSVG(readBtn, library[i].read);
+                readBtn.classList.add("readBtns")
+                readBtn.addEventListener("click", readStatus);
+                cell.classList.add("readCells")
+                cell.appendChild(readBtn);
+            }
             else if (x == array.length){
-                //cell.classList.add("xCell");
-                let removeBtn = document.createElement("button");
-                removeBtn.classList.add("xBtn")
-                newRow.appendChild(removeBtn);
+                let xCell = createDelete(cell);
+                newRow.appendChild(xCell);
                 break
             }
             else{
                 cell.textContent = library[i][array[x]]; 
+            }
+            if ((i % 2) !== 0){
+                cell.classList.add("bg-color")
             }
             newRow.appendChild(cell);
         }
@@ -81,30 +97,37 @@ function displayBooks(library){
     tableBody.appendChild(frag);
 }
 
-function displayBooks2(library){
-    clearBooks();
-    let frag = document.createDocumentFragment();
-    for (let i=0; i < library.length; i++){
-        let newRow = document.createElement("tr");
-        let num = document.createElement("td");
-        num.textContent = i + 1;
-        let name = document.createElement("td");
-        name.textContent = library[i].name;
-        let author = document.createElement("td");
-        author.textContent = library[i].author;
-        let pages = document.createElement("td");
-        pages.textContent = library[i].pages;
-        let read = document.createElement("td");
-        read.textContent = library[i].read;
-        let rating = document.createElement("td");
-        rating.textContent = library[i].rating;
-        newRow.appendChild(num);
-        newRow.appendChild(name);
-        newRow.appendChild(author);
-        newRow.appendChild(pages);
-        newRow.appendChild(read);
-        newRow.appendChild(rating);
-        frag.appendChild(newRow);
+function createDelete(cell){
+    cell.classList.add("x-Cell");
+    let removeBtn = document.createElement("button");
+    removeBtn.classList.add("x-Btn");
+    removeBtn.addEventListener("click", removeBook);
+    cell.appendChild(removeBtn);
+    return cell;
+}
+
+function setSVG(btn, status){
+    if (status == "Yes"){
+        btn.style.backgroundImage = `url("images/check.svg")`;
+        return;
     }
-    tableBody.appendChild(frag);
+    if (status == "No"){
+        btn.style.backgroundImage = `url("images/x.svg")`;
+        return;
+    }
+    if (status == "Unfinished"){
+        btn.style.backgroundImage = `url("images/triple_dot.svg")`;
+        return;
+    }
+}
+
+function removeBook(e){
+    let bookIndex = e.target.parentElement.parentElement.getAttribute("data-index");
+    library.splice(bookIndex,1);
+    displayBooks();
+}
+
+function readStatus(){
+    let bookIndex = e.target.parentElement.parentElement.getAttribute("data-index");
+    library[bookIndex].read = 12
 }
