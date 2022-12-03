@@ -1,0 +1,36 @@
+@import "_reset.css";
+
+*,form, table {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.showForm {
+    display: block;
+}
+
+.booksTable *{
+    text-align: left;
+    border: 2px solid black;
+    padding: 5px 10px;
+}
+
+.booksTable {
+    margin:25px 20px;
+    min-width: 800px;
+}
+
+thead th{
+    font-size: 1.3rem;
+    background-color: black;
+    color: white;
+    font-weight: 700;
+}
+
+tbody tr:nth-child(2n){
+    background-color: rgba(207, 207, 207, 0.548);
+}
