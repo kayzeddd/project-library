@@ -7,6 +7,7 @@ const rating = document.querySelector(".rating")
 const tableBody = document.querySelector(".tableBody")
 const submitBtn = document.querySelector(".submitBtn")
 const bookForm = document.querySelector(".bookForm")
+const requiredText = document.querySelector(".requiredText")
 
 newBookBtn.addEventListener("click", (e) => {bookForm.reset();
     newBookContainer.classList.add("showForm")})
@@ -17,10 +18,15 @@ let ratingValue;
 
 function submit(e){
     e.preventDefault();
-    let read = document.querySelector('input[name="read"]:checked').value;
+    if (bookName.value == "" || author.value == "" || pages.value == "" || document.querySelector('input[name="read"]:checked') == null){
+        requiredText.style.display = "block";
+        return
+    }
     if ((+rating.value) > 10){return alert("Rating greater than 10!")}
+    let read = document.querySelector('input[name="read"]:checked').value;
     rate();
     makeObj(bookName.value, author.value, pages.value, read, ratingValue);
+    requiredText.style.display = "none";
     bookForm.reset();
 }
 

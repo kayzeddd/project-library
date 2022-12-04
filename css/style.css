@@ -2,7 +2,7 @@
 
 *,form, table {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 body {
@@ -41,10 +41,15 @@ main{
     align-items: center;
 }
 
-.newBookBtn {
+.newBookBtn{
     width: 180px;
     align-self: center;
     border: 2px solid black;
+    cursor: pointer
+}
+
+.newBookBtn:hover {
+    background-color: rgb(253, 253, 253);
 }
 
 .hidden {
@@ -98,6 +103,24 @@ main{
 
 .rating {
     width: 35px;
+}
+
+.submitBtn{
+    cursor: pointer;
+}
+
+.submitBtn:hover {
+    background-color: rgb(253, 253, 253);
+}
+
+.newBookBtn:active, .submitBtn:active{
+    transform: translateY(2px);
+}
+
+.requiredText {
+    display: none;
+    font-size: 13px;
+    color: rgb(232, 85, 85);
 }
 
 .bookForm input {
