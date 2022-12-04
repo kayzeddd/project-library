@@ -63,7 +63,7 @@ td, th{
 
 
 .bg-color{
-    background-color: rgba(135, 239, 211, 0.518);
+    background-color: rgba(163, 220, 205, 0.518);
 }
 
 
@@ -87,7 +87,7 @@ td, th{
     cursor: pointer;
 }
 
-.xBtn:hover {
+.x-Btn:hover {
     background-color:white;
 }
 
@@ -97,10 +97,17 @@ td, th{
 }
 
 .readBtns {
+    margin-top: 4px;
     height: 25px;
     width: 25px;
     background-repeat: no-repeat;
     background-size: contain;
     background-color: transparent;
     border: 0px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.readBtns:hover {
+    background-color: white;
 }

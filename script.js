@@ -127,7 +127,25 @@ function removeBook(e){
     displayBooks();
 }
 
-function readStatus(){
+function readStatus(e){
     let bookIndex = e.target.parentElement.parentElement.getAttribute("data-index");
-    library[bookIndex].read = 12
+    let status = changeStatus(library[bookIndex].read, bookIndex);
+    setSVG(e.target, status)
+}
+
+function changeStatus(status, index){
+    let newStatus;
+    if (status == "Yes"){
+        newStatus = "No";
+        library[index].read = "No"
+    }
+    if (status == "No") {
+        newStatus = "Unfinished";
+        library[index].read = "Unfinished"
+    }
+    if (status == "Unfinished") {
+        newStatus = "Yes";
+        library[index].read = "Yes"
+    }
+    return newStatus
 }
