@@ -11,13 +11,40 @@ body {
     background-color: rgba(187, 238, 212, 0.686);
 }
 
+header {
+    display: flex;
+    height: 40px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration:underline;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .big-container {
     margin-top: 50px;
     margin-left:100px;
     margin-right: 100px;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
+}
+
+.newBookBtn {
+    width: 180px;
+    align-self: center;
+    border: 2px solid black;
 }
 
 .hidden {
@@ -25,7 +52,97 @@ body {
 }
 
 .showForm {
-    display: block;
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.bookForm {
+    width: 900px;
+    padding: 15px 0px;
+    display: flex;
+    justify-content: center;
+    column-gap: 50px;
+    border: 2px solid black;
+
+}
+
+.form-div1, .form-div2{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.form-div1 {
+    row-gap: 20px;
+}
+
+.form-div1 div {
+    display: flex;
+    align-items: center;
+}
+
+.form-div1 div label {
+    margin-right: 8px;
+}
+
+.bookName, .author {
+    flex: auto;
+}
+
+.pages {
+    width: 90px;
+}
+
+.rating {
+    width: 35px;
+}
+
+.bookForm input {
+    border: 2px solid black;
+}
+
+.bookForm label{
+    font-weight: 550;
+}
+
+input:required {
+    border: 2px solid rgba(238, 73, 73, 0.84);
+}
+
+input:valid {
+    border: 2px solid black;
+}
+
+.readBook input[type="radio"]:required{
+    outline: 1px solid rgb(246, 28, 28);
+}
+
+.readBook input[type="radio"]:valid{
+    outline: none;
+}
+
+.readBook {
+    border: 2px solid black;
+    padding: 5px 10px;
+}
+
+.readBook label {
+    font-weight: normal;
+}
+
+fieldset legend{
+    padding: 0 10px;
+    font-weight: 550;
+    margin-left: 25px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
 }
 
 .booksTable *{
@@ -34,8 +151,8 @@ body {
 }
 
 .booksTable {
-    margin-top: 50px;
-    min-width: 800px;
+    margin-top: 35px;
+    min-width: 1000px;
 }
 
 thead th{
@@ -53,7 +170,7 @@ td, th{
 
 
 .columnRead {
-    width: 55px;   
+    width: 65px;   
 }
 
 .columnRating{
