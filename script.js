@@ -75,7 +75,7 @@ function displayBooks(){
                 let readBtn = document.createElement("button");
                 setSVG(readBtn, library[i].read);
                 readBtn.classList.add("readBtns")
-                readBtn.addEventListener("click", readStatus);
+                readBtn.addEventListener("click", (e) => library[i].changeReadStatus(e));
                 cell.classList.add("readCells")
                 cell.appendChild(readBtn);
             }
@@ -127,25 +127,19 @@ function removeBook(e){
     displayBooks();
 }
 
-function readStatus(e){
-    let bookIndex = e.target.parentElement.parentElement.getAttribute("data-index");
-    let status = changeStatus(library[bookIndex].read, bookIndex);
-    setSVG(e.target, status)
-}
 
-function changeStatus(status, index){
-    let newStatus;
-    if (status == "Yes"){
-        newStatus = "No";
-        library[index].read = "No"
+Book.prototype.changeReadStatus = function(e){
+    if (this.read == "Yes"){
+        this.read = "No"
     }
-    if (status == "No") {
-        newStatus = "Unfinished";
-        library[index].read = "Unfinished"
+    else if (this.read == "No"){
+        this.read = "Unfinished"
     }
-    if (status == "Unfinished") {
-        newStatus = "Yes";
-        library[index].read = "Yes"
+    else if (this.read == "Unfinished"){
+        this.read = "Yes"
     }
-    return newStatus
+    console.log(this.read)
+    console.log(library)
+    setSVG(e.target, this.read)
+    
 }
