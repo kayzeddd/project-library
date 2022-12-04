@@ -129,6 +129,10 @@ main{
     border: 2px solid black;
 }
 
+input:active {
+    outline: none;
+}
+
 .bookForm label{
     font-weight: 550;
 }
