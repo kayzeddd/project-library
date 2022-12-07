@@ -144,8 +144,5 @@ Book.prototype.changeReadStatus = function(e){
     else if (this.read == "Unfinished"){
         this.read = "Yes"
     }
-    console.log(this.read)
-    console.log(library)
-    setSVG(e.target, this.read)
-    
+    setSVG(e.target, this.read) 
 }

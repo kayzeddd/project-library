@@ -46,7 +46,8 @@ main{
     align-self: center;
     border: 2px solid black;
     font-weight: 550;
-    cursor: pointer
+    cursor: pointer;
+    background-color: rgb(238, 237, 237);
 }
 
 .newBookBtn:hover {
@@ -109,6 +110,7 @@ main{
 .submitBtn{
     font-weight: 550;
     cursor: pointer;
+    background-color: rgb(238, 237, 237);
 }
 
 .submitBtn:hover {
@@ -206,8 +208,6 @@ td, th{
     width: 80px;
 }
 
-
-
 .bg-color{
     background-color: rgba(163, 220, 205, 0.518);
 }
@@ -243,7 +243,6 @@ td, th{
 }
 
 .readBtns {
-    margin-top: 4px;
     height: 25px;
     width: 25px;
     background-repeat: no-repeat;
